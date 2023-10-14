@@ -1,6 +1,6 @@
 # 何これ
 NestJSの単体テストでSQLiteを使うコード。  
-TypeORMのv0.3以降でDataSource使うやつがあまり見当たらなかったので作成。  
+TypeORMのv0.3以降でDataSource使うやつがあまり見当たらなかったのでメモ代わりにpush。  
 
 ## コマンド
 ```
