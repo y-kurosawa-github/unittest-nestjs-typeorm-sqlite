@@ -5,6 +5,7 @@ import { TypeOrmModule, getRepositoryToken } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { DataSource, Repository } from 'typeorm';
 import { UserSeeder } from './user.seeder';
+import { TestOrmConfig } from '../test.ormconfig';
 
 describe('UserService', () => {
     let service: UserService;
@@ -13,13 +14,7 @@ describe('UserService', () => {
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
             imports: [
-                TypeOrmModule.forRoot({
-                    type: 'sqlite',
-                    database: ':memory:',
-                    entities: [User],
-                    synchronize: true,
-                    dropSchema: true, // テストの前にスキーマをドロップする。
-                }),
+                TypeOrmModule.forRoot(TestOrmConfig),
                 TypeOrmModule.forFeature([User]),
             ],
             providers: [UserService],
